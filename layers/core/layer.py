@@ -16,7 +16,8 @@ class Layer():
         "InactivePanes",
         "Theme - Soda SolarizedDark",
         "ExtendedTabSwitcher",
-        "TabsShortcuts"
+        "TabsShortcuts",
+        "Material Theme",
     ]
 
     sublimious_keymap = [
@@ -69,6 +70,7 @@ class Layer():
         {"keys": ["p", "R"], "command": "reveal_in_side_bar", "description": "reveal file"},
         {"keys": ["p", "s"], "command": "show_panel", "args": {"panel": "find_in_files"}, "description": "search file"},
         {"keys": ["/"], "command": "show_panel", "args": {"panel": "find_in_files"}, "description": "create file"},
+        {"keys": ["p", "p"], "command": "prompt_select_workspace", "args": {}, "description": "switch project"},
 
         # ----- Buffers
         {"keys": ["<tab>"], "command": "next_view_in_stack", "description": "previous buffer"},
@@ -102,6 +104,7 @@ class Layer():
         # ----- Meta
         {"keys": ["_"], "category": "meta"},
         {"keys": ["_", "r"], "command": "reload_sublimious", "description": "reload .sublimious"},
+        {"keys": ["_", "e"], "command": "open_sublimious_config", "description": "edit .sublimious"},
     ]
 
     sublime_keymap = [
@@ -123,6 +126,10 @@ class Layer():
         {"keys": ["j"], "command": "move", "args": {"by": "lines", "forward": True}, "context": [{"key": "control", "operand": "sidebar_tree"}]},
         {"keys": ["k"], "command": "move", "args": {"by": "lines", "forward": False}, "context": [{"key": "control", "operand": "sidebar_tree"}]},
         {"keys": ["l"], "command": "move", "args": {"by": "characters", "forward": True}, "context": [{"key": "control", "operand": "sidebar_tree"}]},
+
+        # ----- Overlay nav
+        {"keys": ["ctrl+j"], "command": "move", "args": {"by": "lines", "forward": True}, "context": [{"key": "overlay_visible", "operator": "equal", "operand": True}]},
+        {"keys": ["ctrl+k"], "command": "move", "args": {"by": "lines", "forward": False}, "context": [{"key": "overlay_visible", "operator": "equal", "operand": True}]},
     ]
 
     syntax_definitions = {
